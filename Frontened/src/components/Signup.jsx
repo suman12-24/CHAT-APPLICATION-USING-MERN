@@ -9,7 +9,7 @@ function Signup() {
   const [authUser, setAuthUser] = useAuth();
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
-  
+
   const {
     register,
     handleSubmit,
@@ -42,18 +42,18 @@ function Signup() {
     if (!value) return "Phone number is required";
     // Remove any spaces, dashes, or parentheses
     const cleanPhone = value.replace(/[\s\-\(\)]/g, '');
-    
+
     // Check if it's exactly 10 digits
     if (!/^\d{10}$/.test(cleanPhone)) {
       return "Phone number must be exactly 10 digits";
     }
-    
+
     // Check if it starts with 6, 7, 8, or 9
     const firstDigit = cleanPhone.charAt(0);
     if (!['6', '7', '8', '9'].includes(firstDigit)) {
       return "Phone number must start with 6-9";
     }
-    
+
     return true;
   };
 
@@ -77,7 +77,7 @@ function Signup() {
       password: data.password,
       confirmPassword: data.confirmPassword,
     };
-    
+
     try {
       const response = await axios.post("/api/user/signup", userInfo);
       if (response.data) {
@@ -106,7 +106,7 @@ function Signup() {
           </h1>
           <h2 className="text-xl text-white font-bold">Signup</h2>
           <br />
-          
+
           {/* Fullname */}
           <label className="input input-bordered flex items-center gap-2">
             <svg
@@ -121,8 +121,8 @@ function Signup() {
               type="text"
               className="grow"
               placeholder="Full Name"
-              {...register("fullname", { 
-                validate: validateFullname 
+              {...register("fullname", {
+                validate: validateFullname
               })}
             />
           </label>
@@ -131,7 +131,7 @@ function Signup() {
               {errors.fullname.message}
             </span>
           )}
-          
+
           {/* Email */}
           <label className="input input-bordered flex items-center gap-2">
             <svg
@@ -148,8 +148,8 @@ function Signup() {
               className="grow"
               placeholder="Email"
               inputMode="email"
-              {...register("email", { 
-                validate: validateEmail 
+              {...register("email", {
+                validate: validateEmail
               })}
             />
           </label>
@@ -175,8 +175,8 @@ function Signup() {
               maxLength={10}
               inputMode="numeric"
               placeholder="Phone Number (10 digits)"
-              {...register("phone", { 
-                validate: validatePhone 
+              {...register("phone", {
+                validate: validatePhone
               })}
             />
           </label>
@@ -185,7 +185,7 @@ function Signup() {
               {errors.phone.message}
             </span>
           )}
-          
+
           {/* Password */}
           <label className="input input-bordered flex items-center gap-2">
             <svg
@@ -204,8 +204,8 @@ function Signup() {
               type={showPassword ? "text" : "password"}
               className="grow"
               placeholder="Password (min 6 characters)"
-              {...register("password", { 
-                validate: validatePassword 
+              {...register("password", {
+                validate: validatePassword
               })}
             />
             <button
