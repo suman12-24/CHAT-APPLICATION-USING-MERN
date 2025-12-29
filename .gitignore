@@ -1,11 +1,13 @@
-# Node
-node_modules/
+# Root
 .env
 
-# Build folders
-Frontend/dist
-Frontend/build
-Backend/dist
+# Backend
+Backend/node_modules/
+Backend/.env
 
-# OS
-.DS_Store
+# Frontend
+Frontend/node_modules/
+Frontend/build/
+
+# Logs
+npm-debug.log*
