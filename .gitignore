@@ -1,0 +1,11 @@
+# Node
+node_modules/
+.env
+
+# Build folders
+Frontend/dist
+Frontend/build
+Backend/dist
+
+# OS
+.DS_Store
